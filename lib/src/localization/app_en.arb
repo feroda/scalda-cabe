@@ -1,0 +1,6 @@
+{
+  "appTitle": "scalda_cabe",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
