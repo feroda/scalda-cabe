@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// A service that stores and retrieves user settings.
 ///
@@ -13,5 +14,20 @@ class SettingsService {
   Future<void> updateThemeMode(ThemeMode theme) async {
     // Use the shared_preferences package to persist settings locally or the
     // http package to persist settings over the network.
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('theme', theme as String);
+  }
+
+  Future<String> getRecipient() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return Future.value(prefs.getString('recipient') ?? "");
+  }
+
+  /// Persists the user's preferred ThemeMode to local or remote storage.
+  Future<void> updateRecipient(String recipient) async {
+    // Use the shared_preferences package to persist settings locally or the
+    // http package to persist settings over the network.
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('recipient', recipient);
   }
 }

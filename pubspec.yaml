@@ -18,6 +18,7 @@ dependencies:
     git:
         url: https://github.com/fluttercommunity/flutter_sms.git
         ref: master
+  shared_preferences: ^2.2.2
   telephony: ^0.2.0
 
 dev_dependencies:
